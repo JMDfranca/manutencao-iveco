@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVECO - Plano de Manutenção</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+
+<body>
+
+    <py-config>
+        [[fetch]]
+        files = ["./manutencao.py"]
+    </py-config>
+    <py-script src="./manutencao.py">  </py-script>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <a target="_blank" href="https://www.iveco.com/brasil/Pages/Home-page.aspx">
+                <img src="./logo_iveco.png" alt="">
+            </a>
+        </div>
+        
+        <div class="d-md-flex flex-column flex-md-row justify-content-center w-100">
+            <form onsubmit="return false;" class="col-md-6">
+                <div class="form-group mt-5">
+                    <label for="config">Configuração de Carreta:</label>
+                    <select class="form-select" id="config" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="20">2 EIXOS</option>
+                        <option value="60">3 EIXOS</option>
+                        <option value="120">BI TREM 7 EIXOS</option>
+                        <option value="140">VARDERLEIA</option>
+                        <option value="160">4 EIXOS ( 3+1)</option>
+                        <option value="200">BI TREM 9 EIXOS</option>
+                        <option value="220">RODOTREM / TRITREM</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="axle">Configuração de Eixo:</label>
+                    <select class="form-select" id="axle" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="10">4x2</option>
+                        <option value="20">6x2</option>
+                        <option value="50">6x4</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="distance">Distância Percorrida Por Ano:</label>
+                    <input type="number" min=0 class="form-control" id="distance" required/>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="road_condition">Condição da Via:</label>
+                    <select class="form-select" id="road_condition" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="1">Regular</option>
+                        <option value="5">Irregular</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="topography">Condição Topográfica:</label>
+                    <select class="form-select" id="topography" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="10">Predominantemente Plana</option>
+                        <option value="60">Acidentada</option>
+                        <option value="70">Muito Acidentada</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="condition_traffic">Condição de Tráfego:</label>
+                    <select class="form-select" id="condition_traffic" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="10">Rodovia expressa</option>
+                        <option value="30">Rodovia Intenssa</option>
+                        <option value="50">Extra Urbano Expresso</option>
+                        <option value="70">Extra Urbano Intenso</option>
+                        <option value="100">Urbano / Fora de Estrada Expresso</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="transport">Fator de Transporte (%PBTC / Viagens):</label>
+                    <select class="form-select" id="transport" required>
+                        <option value="" selected>Selecione...</option>
+                        <option value="15">50%</option>
+                        <option value="35">100%</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="environment">Condições Ambientais (Presença de pó, poeira, minério, areia):</label>
+                    <select class="form-select" id="environment" required>
+                        <option value="" selected>Selecione...</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                        <option>Extremo</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="utilization">Utilização PTO:</label>
+                    <select class="form-select" id="utilization" required>
+                        <option value="" selected>Selecione...</option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+                </div>
+                <div class="d-flex flex-row-reverse my-3">
+                    <button type="submit" class="btn btn-primary" py-click="manutencao()" id="btn-send"> Executar </button>
+                </div>
+            </form>
+            <div class="align-items-center d-flex flex-column col-md-6">
+                <img src="./iveco_truck.png" alt="" style="object-fit: cover;width: auto;height: 40vh;" class="mt-5 d-none d-md-flex">
+                <p class="p-5" style="font-weight:700;font-size:32px" id="output"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
