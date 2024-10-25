@@ -71,11 +71,9 @@ def manutencao(*args, **kwargs):
     total = sum(values_to_sum)
 
 
-
-
     #Especificando o tipo de manutenção conforme regras
 
-       if distance_treted == 72:
+    if distance_treted == 72:
         tipo_plano = "Plano de manutenção recomendado: HORAS revisões a cada 500Km \n"
     elif total > 0 and total <= 160:
         tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 60.000Km \n"
