@@ -79,9 +79,9 @@ def manutencao(*args, **kwargs):
         tipo_plano = "Plano de manutenção recomendado: Revisões a cada 60.000Km \n"
     elif total > 160 and total <= 290:
         tipo_plano = "Plano de manutenção recomendado: Revisões a cada 45.000Km \n"
-    elif total > 290 and total <= 580:
+    elif total > 290 and total <= 550:
         tipo_plano = "Plano de manutenção recomendado: Revisões a cada 30.000Km \n"
-    elif total > 580:
+    elif total > 550:
         tipo_plano = "Plano de manutenção recomendado: Revisões a cada 20.000Km \n"
     else:
         tipo_plano = "Condição de uso não parametrizada, por favor, procure seu representante IVECO \n"
