@@ -75,20 +75,14 @@ def manutencao(*args, **kwargs):
 
     #Especificando o tipo de manutenção conforme regras
 
-    if distance_treted == 72:
+       if distance_treted == 72:
         tipo_plano = "Plano de manutenção recomendado: HORAS revisões a cada 500Km \n"
-    elif total > 0 and total <= 160 and axle == "6x2":
+    elif total > 0 and total <= 160:
         tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 60.000Km \n"
-    elif total > 160 and total <= 290 and axle == "6x2":
+    elif total > 160 and total <= 290:
         tipo_plano = "Plano de manutenção recomendado: Padrão com Revisões a cada 45.000Km \n"
-    elif total > 290 and total <= 580 and axle == "6x2"
+    elif total > 290 and total <= 580:
         tipo_plano = "Plano de manutenção recomendado: Severo com Revisões a cada 30.000Km \n"
-    elif total > 0 and total <= 160 and axle == "6x4":
-        tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 45.000Km \n"
-    elif total > 160 and total <= 290 and axle == "6x4":
-        tipo_plano = "Plano de manutenção recomendado: Padrão com Revisões a cada 30.000Km \n"
-    elif total > 290 and total <= 580 and axle == "6x4"
-        tipo_plano = "Plano de manutenção recomendado: Severo com Revisões a cada 20.000Km \n"
     elif total > 580:
         tipo_plano = "Plano de manutenção recomendado: Muito Severo com Revisões a cada 20.000Km \n"
     else:
