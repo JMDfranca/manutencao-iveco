@@ -78,8 +78,8 @@ def manutencao(*args, **kwargs):
     if distance_treted == 72:
         tipo_plano = "Plano de manutenção recomendado: HORAS revisões a cada 500 h \n"
     
-    if axle == "6x2":
-    elif total > 0 and total <= 160:
+elif axle == "6x2":
+    if total > 0 and total <= 160:
         tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 60.000Km \n"
     elif total > 160 and total <= 290:
         tipo_plano = "Plano de manutenção recomendado: Padrão com Revisões a cada 45.000Km \n"
@@ -87,15 +87,14 @@ def manutencao(*args, **kwargs):
         tipo_plano = "Plano de manutenção recomendado: Severo com Revisões a cada 30.000Km \n"
     elif total > 580:
         tipo_plano = "Plano de manutenção recomendado: Muito Severo com Revisões a cada 20.000Km \n"
-   
-    else:
-    if axle == "6x4":
-         elif total > 0 and total <= 290:
-        tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 45.000Km \n"
-    elif total > 290 and total <= 580:
-        tipo_plano = "Plano de manutenção recomendado: Padrão com Revisões a cada 30.000Km \n"
-    elif total > 580:
-         tipo_plano = "Plano de manutenção recomendado: Muito Severo com Revisões a cada 20.000Km \n"
+
+    elif axle == "6x4":
+        if total > 0 and total <= 290:
+            tipo_plano = "Plano de manutenção recomendado: Leve com Revisões a cada 45.000Km \n"
+        elif total > 290 and total <= 580:
+            tipo_plano = "Plano de manutenção recomendado: Padrão com Revisões a cada 30.000Km \n"
+        elif total > 580:
+            tipo_plano = "Plano de manutenção recomendado: Muito Severo com Revisões a cada 20.000Km \n"
     
     else:
         tipo_plano = "Condição de uso não parametrizada, por favor, procure seu representante IVECO \n"
